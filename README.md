@@ -20,6 +20,14 @@ These Bash scripts automates the setup process for a Debian system. Currently fo
    ```
    Replace `<username>` with your actual username.
 
+3. Check if user is in `sudo` group:
+   ```shell
+   sudo -l
+   ```
+   You need to logout and log back in for sudoers file to update. 
+
+
+
 ## What does it contain
 1. General configuration of Debian includes apt and non-apt packages
 2. Installing and Configuring GIT
