@@ -124,21 +124,20 @@ fi
 # ----- Visual Studio Code ----- #
 # ------------------------------ #
 
-echo "Downloading Visual Studio Code GPG key"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg]\'
- https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] \
+https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
 
-    if apt-get install -y code; then
-        echo "Visual Studio Code installed successfully."
-        # Install extensions
-        code --install-extension GitHub.copilot
-    else
-        echo -e "${RED}Failed to install Visual Studio Code.${NC}"
-    fi
+if apt-get install -y code; then
+    echo "Visual Studio Code installed successfully."
+    # Install extensions
+    code --install-extension GitHub.copilot
+else
+    echo -e "Failed to install Visual Studio Code."
+fi
 
 echo "****************************************************"
-echo " Debian 12 (Bookworm) Package Installation Complete "
+echo "Debian 12 (Bookworm) Package Installation Complete"
 echo "****************************************************"
