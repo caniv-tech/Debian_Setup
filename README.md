@@ -31,7 +31,7 @@ These Bash scripts automates the setup process for a Debian system. Currently fo
 ## What does it contain
 1. General configuration of Debian includes apt and non-apt packages
 2. Installing and Configuring GIT
-3. Downlaoding latest python from source and setting up Virtual environment
+3. Downloading latest python from source and setting up Virtual environment
 4. Installing and configuring docker and docker compose
 ## Disclaimer
 
