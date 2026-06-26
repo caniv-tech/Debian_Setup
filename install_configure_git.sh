@@ -1,20 +1,18 @@
 #!/bin/bash
-
 set -e
 
 # Set a timeout for wget (downloads) so the script doesn't hang indefinitely
+
 timeout=10
 
 echo "=========================================="
 echo "GIT Installation and Configuration Script"
 echo "=========================================="
 
-
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
 fi
-
 echo "Step 1: Installing GIT"
 apt-get update
 apt-get install -y git
